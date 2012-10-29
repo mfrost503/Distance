@@ -85,6 +85,7 @@ class Distance
     {
         if(!isset($this->conversions[strtolower($unit)])) {
             throw new UndefinedUnitException("The unit you're trying to convert to ($unit) is not valid");
+            return 0;
         }
         return $this->distance * ($this->conversions[strtolower($unit)]/$this->conversions[$this->unit]);
     }
