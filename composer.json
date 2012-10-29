@@ -1,5 +1,5 @@
 {
-    "name": "Frost/Distance",
+    "name": "frost/distance",
     "type": "library",
     "description": "A distance conversion library",
     "keywords":["distance","conversions","miles","kilometers"],
