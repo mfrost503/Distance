@@ -11,17 +11,16 @@ class Distance
 
     /**
      * @var string
-     * Unit of measurement
      */
     private $unit='mi';
+
     /**
      * @var float
-     * Distance
      */
     private $distance=0.00;
+
     /**
      * @var array
-     * Array containing conversions, based off mile measurement
      */
     private $conversions;
 
@@ -48,7 +47,6 @@ class Distance
      * set the unit type
      * @throws UndefinedUnitException
      */
-
     public function setUnit($unit)
     {
         $unit = strtolower($unit);
@@ -67,7 +65,6 @@ class Distance
      * @return Distance
      * set the value of the distance
      */
-
     public function setDistance($distance)
     {
         $this->distance = $distance;
@@ -80,12 +77,10 @@ class Distance
      * Returns the value of the requested distance unit
      * @throws UndefinedUnitException
      */
-
     public function convertTo($unit)
     {
         if(!isset($this->conversions[strtolower($unit)])) {
             throw new UndefinedUnitException("The unit you're trying to convert to ($unit) is not valid");
-            return 0;
         }
         return $this->distance * ($this->conversions[strtolower($unit)]/$this->conversions[$this->unit]);
     }
