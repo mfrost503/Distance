@@ -37,8 +37,9 @@ class TestCalculations extends \PHPUnit_Framework_TestCase
 
     public function ConvertFromOneUnitToAnother($providedDistance,$unit,$convertTo,$expected)
     {
-        $this->distance->setDistance($providedDistance)->setUnit($unit);
-        $value = $this->distance->convertTo($convertTo);
+        $value = $this->distance->setDistance($providedDistance)
+            ->setUnit($unit)
+            ->convertTo($convertTo);
         $this->assertEquals($value,$expected,$value);
     }
 
@@ -65,8 +66,8 @@ class TestCalculations extends \PHPUnit_Framework_TestCase
 
     public function HandleInvalidUnitPassedToConvertTo()
     {
-        $this->distance->setUnit('mi')
-                       ->setDistance(10);
-        $value = $this->distance->convertTo('ab');
+        $value = $this->distance->setUnit('mi')
+            ->setDistance(10)
+            ->convertTo('ab');
     }
 }

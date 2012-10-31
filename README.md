@@ -13,8 +13,7 @@ US to metric, metric to US, US to US or metric to metric.
 
         $distance = new Distance();
         $distance->setUnit('km')
-                 ->setDistance(10);
-
-        $value = $distance->convertTo('mi');
+            ->setDistance(10);
+            ->convertTo('mi');
 
 
