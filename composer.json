@@ -1,6 +1,7 @@
 {
     "name": "frost/distance",
     "type": "library",
+    "license": "MIT",
     "description": "A distance conversion library",
     "keywords":["distance","conversions","miles","kilometers"],
     "homepage": "http://github.com/mfrost503/Distance",
