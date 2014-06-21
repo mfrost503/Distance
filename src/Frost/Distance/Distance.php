@@ -10,17 +10,17 @@ class Distance
 {
 
     /**
-     * @var string
+     * @var $unit string
      */
     private $unit='mi';
 
     /**
-     * @var float
+     * @var $distance float
      */
     private $distance=0.00;
 
     /**
-     * @var array
+     * @var $conversions array
      */
     private $conversions;
 
@@ -42,10 +42,11 @@ class Distance
     }
 
     /**
-     * @param $unit
-     * @return Distance
-     * set the unit type
+     * @param $unit string
+     * @return Distance float
      * @throws UndefinedUnitException
+     *
+     * Configures the unit type that the user will be converting from
      */
     public function setUnit($unit)
     {
@@ -53,29 +54,33 @@ class Distance
 
         if(!isset($this->conversions[$unit])){
             throw new UndefinedUnitException("The unit you've provided ($unit) is not valid");
-        }else{
-            $this->unit = $unit;
         }
 
+        $this->unit = $unit;
         return $this;
     }
 
     /**
-     * @param $distance
-     * @return Distance
-     * set the value of the distance
+     * @param $distance float
+     * @return Distance float
+     *
+     * Sets the distance needed for the conversion
      */
     public function setDistance($distance)
     {
+        if (!is_float($distance) && !is_int($distance)) {
+            throw new \InvalidArgumentException("Distance must be a number");
+        }
         $this->distance = $distance;
         return $this;
     }
 
     /**
-     * @param $unit
+     * @param $unit string
      * @return float
-     * Returns the value of the requested distance unit
      * @throws UndefinedUnitException
+     *
+     * Returns the value of the requested distance unit
      */
     public function convertTo($unit)
     {

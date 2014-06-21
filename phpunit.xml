@@ -1,2 +1,7 @@
-<phpunit bootstrap="tests/index.php">
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit bootstrap="tests/index.php"
+    colors="true">
+    <testsuite name="Distance">
+		<directory>./tests</directory>
+    </testsuite>
 </phpunit>
